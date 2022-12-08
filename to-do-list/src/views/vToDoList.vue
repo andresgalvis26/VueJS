@@ -1,15 +1,15 @@
 <template>
-  <hello-world />
+  <ToDoList />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import ToDoList from '../components/ToDoList.vue'
 
   export default {
     name: 'Home',
 
     components: {
-      HelloWorld,
+      ToDoList,
     },
   }
 </script>

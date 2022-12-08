@@ -2,17 +2,16 @@
   <v-app>
     <v-card>
 
-
       <!-- | TOOLBAR O NAVBAR | -->
-      <v-app-bar color="blue darken-2" dark dense>
+      <v-app-bar color="brown darken-3" dark dense>
         <v-app-bar-nav-icon @click="stateDrawer = !stateDrawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>TO-DO LIST - VueJS & Vuetify</v-toolbar-title>
+        <v-toolbar-title>TO-DO LIST: VueJS & Vuetify</v-toolbar-title>
         <v-spacer></v-spacer>
 
 
         <!-- | TABS: GENERAL, PENDIENTES, EN PROCESO Y FINALIZADAS | -->
         <template v-slot:extension>
-          <v-tabs v-model="tab" align-with-title fixed-tabs>
+          <v-tabs v-model="tab" align-with-title grow>
             <v-tabs-slider color="white"></v-tabs-slider>
 
             <v-tab v-for="item, index in items" :class="{ active: currentTab === index }" @click="currentTab = index"
@@ -31,17 +30,14 @@
             <v-avatar>
               <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="">
             </v-avatar>
-            <h2 class="white--text">Admin</h2>
-            <h4 class="white--text">25/10/2022</h4>
+            <h2 class="mt-2 white--text">Andrés Felipe Galvis</h2>
+            <h4 class="white--text">23 años</h4>
+            <h5 class="white--text">Ingeniero de Software - UDES</h5>
+            <!-- <h4 class="white--text">25/10/2022</h4> -->
+            <!-- <h2 class="mt-10 white--text">Disfarma GC</h2>
+            <h5 class="white--text">Analista de Desarrollo de Software</h5> -->
           </v-col>
         </v-row>
-
-        <!-- | SI DESEO AÑADIR BOTONES + LINKS | -->
-        <!-- <v-row column class="mx-2">
-          <v-col>
-            <v-btn color="green" block class="my-2" :to="{ name: 'Home' }">To-Do List</v-btn>
-          </v-col>
-        </v-row> -->
       </v-navigation-drawer>
 
 
@@ -188,7 +184,7 @@
               <v-data-table :headers="headers" :items="tareas" :search="search">
 
                 <template v-slot:item.prioridadTarea="{ item }">
-                  <!-- Cambiar el color -->
+                  <!-- | Cambiar el color | -->
                   <v-chip :color="getColor(item.prioridadTarea)" dark>
                     {{ item.prioridadTarea }}
                   </v-chip>
@@ -374,7 +370,7 @@
               <v-data-table :headers="headers" :items="tareasPendientes" :search="search">
 
                 <template v-slot:item.prioridadTarea="{ item }">
-                  <!-- Cambiar el color -->
+                  <!-- | Cambiar el color | -->
                   <v-chip :color="getColor(item.prioridadTarea)" dark>
                     {{ item.prioridadTarea }}
                   </v-chip>
@@ -559,7 +555,7 @@
               <v-data-table :headers="headers" :items="tareasEnProceso" :search="search">
 
                 <template v-slot:item.prioridadTarea="{ item }">
-                  <!-- Cambiar el color -->
+                  <!-- | Cambiar el color | -->
                   <v-chip :color="getColor(item.prioridadTarea)" dark>
                     {{ item.prioridadTarea }}
                   </v-chip>
@@ -869,7 +865,7 @@ export default {
       }
     },
     eliminarTarea(id) {
-      // Se crea un nuevo arreglo de objetos 'desserts' filtrando y eliminando la tarea que envía su ID
+      // Se crea un nuevo arreglo de objetos 'tareas' filtrando y eliminando la tarea que envía su ID
       this.tareas = this.tareas.filter(e => e.id != id)
       // Retornará el nuevo arreglo con todas las tareas que tengan un ID distinto al que se pasó. Eliminando el registro con el ID envíado.
 
